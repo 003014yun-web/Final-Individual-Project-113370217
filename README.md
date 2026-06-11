@@ -19,12 +19,12 @@ This study focuses on **sexually active adolescents** to evaluate the predictive
 
 ### 1. 依變數：近期性伴侶數量 / Dependent Variable: Number of Sex Partners (`MultipleSexPartners`)
 
-  * **原始欄位**: `BL`（過去 3 個月內的性伴侶人數，原始編碼為 1 至 8）。
+  * **原始欄位**: `BI`（過去 3 個月內的性伴侶人數，原始編碼為 1 至 8）。
   * **資料篩選**: 剔除原始編碼為 `1`（從未發生過性行為）與 `2`（過去 3 個月內無性行為）的樣本，**僅保留具備活躍性經驗之青少年**。
   * **連續變數轉換**: 為了符合線性迴歸之連續型變數假設，將原始代碼進行減 2 映射（`val - 2`），轉換為具有實質數量意義的**連續數值 1 至 6 人**（其中 `6` 代表 6 人或以上）。
   * 異常值、漏填或不確定之回答皆轉為 `None`（缺失值）。
 
-  * **Original Variable**: `Q61` (Number of sex partners during the past 3 months, originally coded from 1 to 8).
+  * **Original Variable**: `BI` (Number of sex partners during the past 3 months, originally coded from 1 to 8).
   * **Sample Filtering**: Excluded records coded as `1` (Never had sexual intercourse) and `2` (No sex partners during the past 3 months) to **specifically target sexually active adolescents**.
   * **Continuous Variable Scaling**: To satisfy the continuous variable assumption of linear regression, the original codes are mapped by subtracting 2 (`val - 2`), converting them into a **continuous numerical scale from 1 to 6** (where `6` indicates 6 or more partners).
   * Refusals, missing data, or "Not sure" responses are converted to `None` (Missing values).
@@ -34,7 +34,7 @@ This study focuses on **sexually active adolescents** to evaluate the predictive
   * **原始欄位**: `CH`（是否曾在學校上過關於愛滋病的衛教課程）。
   * **重碼邏輯**: `1` (Yes) 代表曾接受過學校愛滋病衛教（原編碼 1）；`0` (No) 代表未曾接受過學校愛滋病衛教（原編碼 2）。原編碼 3（Not sure）或漏填者皆轉為 `None`。
 
-  * **Original Variable**: `Q85` (Ever taught about AIDS or HIV infection in school).
+  * **Original Variable**: `CH` (Ever taught about AIDS or HIV infection in school).
   * **Recoding Logic**: `1` (Yes) indicates having received HIV education in school (originally 1); `0` (No) indicates never received HIV education in school (originally 2). Responses with code 3 (Not sure) or missing are converted to `None`.
 
 ### 3. 自變數 B：愛滋病篩檢行為 / Independent Variable B: HIV Testing (`HIVTesting`)
@@ -42,7 +42,7 @@ This study focuses on **sexually active adolescents** to evaluate the predictive
   * **原始欄位**: `CQ`（是否曾接受過愛滋病病毒/HIV 檢測）。
   * **重碼邏輯**: `1` (Yes) 代表曾做過愛滋病篩檢（原編碼 1）；`0` (No) 代表未曾做過愛滋病篩檢（原編碼 2）。原編碼 3（Not sure）或漏填者皆轉為 `None`。
 
-  * **Original Variable**: `Q94` (Ever been tested for HIV).
+  * **Original Variable**: `CQ` (Ever been tested for HIV).
   * **Recoding Logic**: `1` (Yes) indicates having been tested for HIV (originally 1); `0` (No) indicates never been tested for HIV (originally 2). Responses with code 3 (Not sure) or missing are converted to `None`.
 
 ### 4. 自變數 C：安全防護行為 / Independent Variable C: Condom Use (`CondomUse`)
@@ -50,7 +50,7 @@ This study focuses on **sexually active adolescents** to evaluate the predictive
   * **原始欄位**: `BL`（最近一次性行為中是否有使用保險套）。
   * **重碼邏輯**: `1` (Yes) 代表最近一次性行為有使用保險套（原編碼 2）；`0` (No) 代表最近一次性行為未使用保險套（原編碼 3）。原編碼 1（從未發生過性行為者，已於前置步驟預先剔除）或其他無效值皆轉為 `None`。
 
-  * **Original Variable**: `Q63` (Used a condom during last sexual intercourse).
+  * **Original Variable**: `BL` (Used a condom during last sexual intercourse).
   * **Recoding Logic**: `1` (Yes) indicates a condom was used during the last sexual intercourse (originally 2); `0` (No) indicates a condom was not used (originally 3). Code 1 (Never had sex) is pre-filtered, and other invalid responses are converted to `None`.
 
 ### ⚠️ 缺失值處理 / Missing Data Handling (Listwise Deletion)
