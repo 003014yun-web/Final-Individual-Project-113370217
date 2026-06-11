@@ -2,56 +2,54 @@
 
 * **數據集名稱 / Dataset Name**: 
   * 2007 Youth Risk Behavior Surveillance System (YRBSS)
-  * 2007 年青少年危險行為調查
 * **來源 / Source**: 
   * Centers for Disease Control and Prevention (CDC)
-  * 美國疾病管制與預防中心
 
 ---
 
 ## 🔍 選定變數與資料清洗 / Selected Variables & Data Cleaning
 
-### [繁體中文]
+### 
 本研究聚焦於**已具備性經驗的青少年群體**，探討其愛滋病相關衛教、篩檢行為、安全防護措施對其性伴侶數量的預測效果。根據 Python 清洗邏輯，原始 YRBSS 數據的處理與重碼細節如下：
 
-### [English]
+### 
 This study focuses on **sexually active adolescents** to evaluate the predictive effects of HIV education, HIV testing history, and protective behaviors on their total number of sex partners. According to our Python data cleaning logic, the original YRBSS variables are processed and recoded as follows:
 
 ---
 
 ### 1. 依變數：近期性伴侶數量 / Dependent Variable: Number of Sex Partners (`MultipleSexPartners`)
-* **中文說明**:
+
   * **原始欄位**: `BL`（過去 3 個月內的性伴侶人數，原始編碼為 1 至 8）。
   * **資料篩選**: 剔除原始編碼為 `1`（從未發生過性行為）與 `2`（過去 3 個月內無性行為）的樣本，**僅保留具備活躍性經驗之青少年**。
   * **連續變數轉換**: 為了符合線性迴歸之連續型變數假設，將原始代碼進行減 2 映射（`val - 2`），轉換為具有實質數量意義的**連續數值 1 至 6 人**（其中 `6` 代表 6 人或以上）。
   * 異常值、漏填或不確定之回答皆轉為 `None`（缺失值）。
-* **English Description**:
+
   * **Original Variable**: `Q61` (Number of sex partners during the past 3 months, originally coded from 1 to 8).
   * **Sample Filtering**: Excluded records coded as `1` (Never had sexual intercourse) and `2` (No sex partners during the past 3 months) to **specifically target sexually active adolescents**.
   * **Continuous Variable Scaling**: To satisfy the continuous variable assumption of linear regression, the original codes are mapped by subtracting 2 (`val - 2`), converting them into a **continuous numerical scale from 1 to 6** (where `6` indicates 6 or more partners).
   * Refusals, missing data, or "Not sure" responses are converted to `None` (Missing values).
 
 ### 2. 自變數 A：學校愛滋病衛教認知 / Independent Variable A: HIV Education (`TaughtAboutHIV`)
-* **中文說明**:
+
   * **原始欄位**: `CH`（是否曾在學校上過關於愛滋病的衛教課程）。
   * **重碼邏輯**: `1` (Yes) 代表曾接受過學校愛滋病衛教（原編碼 1）；`0` (No) 代表未曾接受過學校愛滋病衛教（原編碼 2）。原編碼 3（Not sure）或漏填者皆轉為 `None`。
-* **English Description**:
+
   * **Original Variable**: `Q85` (Ever taught about AIDS or HIV infection in school).
   * **Recoding Logic**: `1` (Yes) indicates having received HIV education in school (originally 1); `0` (No) indicates never received HIV education in school (originally 2). Responses with code 3 (Not sure) or missing are converted to `None`.
 
 ### 3. 自變數 B：愛滋病篩檢行為 / Independent Variable B: HIV Testing (`HIVTesting`)
-* **中文說明**:
+
   * **原始欄位**: `CQ`（是否曾接受過愛滋病病毒/HIV 檢測）。
   * **重碼邏輯**: `1` (Yes) 代表曾做過愛滋病篩檢（原編碼 1）；`0` (No) 代表未曾做過愛滋病篩檢（原編碼 2）。原編碼 3（Not sure）或漏填者皆轉為 `None`。
-* **English Description**:
+
   * **Original Variable**: `Q94` (Ever been tested for HIV).
   * **Recoding Logic**: `1` (Yes) indicates having been tested for HIV (originally 1); `0` (No) indicates never been tested for HIV (originally 2). Responses with code 3 (Not sure) or missing are converted to `None`.
 
 ### 4. 自變數 C：安全防護行為 / Independent Variable C: Condom Use (`CondomUse`)
-* **中文說明**:
+
   * **原始欄位**: `BL`（最近一次性行為中是否有使用保險套）。
   * **重碼邏輯**: `1` (Yes) 代表最近一次性行為有使用保險套（原編碼 2）；`0` (No) 代表最近一次性行為未使用保險套（原編碼 3）。原編碼 1（從未發生過性行為者，已於前置步驟預先剔除）或其他無效值皆轉為 `None`。
-* **English Description**:
+
   * **Original Variable**: `Q63` (Used a condom during last sexual intercourse).
   * **Recoding Logic**: `1` (Yes) indicates a condom was used during the last sexual intercourse (originally 2); `0` (No) indicates a condom was not used (originally 3). Code 1 (Never had sex) is pre-filtered, and other invalid responses are converted to `None`.
 
@@ -63,7 +61,7 @@ This study focuses on **sexually active adolescents** to evaluate the predictive
 
 ## 📊 統計檢定方法 / Statistical Methodology
 
-### [繁體中文]
+### 
 本研究採用 **多元線性迴歸分析 (Multiple Linear Regression)** 進行統計建模，以評估多個二分（Dummy）預測因子對於連續型結果變數的共同預測力與相對貢獻度。
 
 * **統計模型方程式**:
@@ -73,7 +71,7 @@ This study focuses on **sexually active adolescents** to evaluate the predictive
   1. **整體模型顯著性**: 檢視 $F$-test 與 $R^2$ 決定係數，評估該行為模型對青少年性伴侶數量的解釋能力。
   2. **偏迴歸係數 ($\beta$) 檢定**: 透過 $t$-test 評估在控制其他變數不變下，單一預測因子對伴侶數量的獨立影響是否顯著 ($p < 0.05$)。
 
-### [English]
+### 
 This study utilizes **Multiple Linear Regression Analysis** for statistical modeling to evaluate the collective predictive power and unique contributions of multiple dichotomous (dummy) predictors on a continuous outcome variable.
 
 * **Statistical Model Equation**:
