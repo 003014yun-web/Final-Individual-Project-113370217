@@ -1,3 +1,7 @@
+## Student Information
+Name: 黃子芸
+Student ID: 113370217
+
 ## 💾 使用數據 / Dataset
 
 * **數據集名稱 / Dataset Name**: 
