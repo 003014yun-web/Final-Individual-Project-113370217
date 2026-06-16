@@ -1,0 +1,44 @@
+==============================================================================
+               MULTIPLE LINEAR REGRESSION COMPLETE REPORT
+                      DATASET SOURCE: YRBS 2007
+==============================================================================
+Analysis Date: June 11, 2026
+Dependent Variable: MultipleSexPartners (Continuous Scale 1-6)
+Total Observations (N): 3761 valid sexually active adolescent samples
+
+--- [ Overall Model Fit Metrics ] ---
+* Coefficient of Determination (R-squared): 0.0367
+  (The model explains approximately 3.67% of the variance in partner counts)
+* Adjusted R-squared: 0.0359
+* F-statistic value: 47.68
+* Model Significance (Prob (F-statistic)): 3.0836e-30 
+  (p < 0.05 indicates the overall behavioral model is highly statistically significant)
+
+--- [ Statistical Assumptions & Diagnostics ] ---
+* Error Independence (Durbin-Watson): 1.892 
+  (Values close to 2.0 confirm the absence of autocorrelation, satisfying the independence assumption)
+* Multicollinearity Test (Condition Number): 7.59 
+  (Values well below 30 indicate no major multicollinearity issues among predictors)
+
+==============================================================================
+             PARTIAL REGRESSION COEFFICIENTS & HYPOTHESIS TESTING
+==============================================================================
+* Intercept [Baseline Reference]:
+  - Beta Coefficient (B) = 3.1825 | p-value = 3.6730e-226 (***)
+  - Interpretation: When an adolescent has no HIV education, no testing history, and did not use a condom, the baseline average partner count is 3.18.
+
+* HIV Education (TaughtAboutHIV):
+  - Beta Coefficient (B) = -0.3464 | p-value = 1.4826e-04 (***)
+  - Decision: Reject H0. While controlling for other behaviors, receiving school HIV education independently and significantly predicts a fewer number of sex partners.
+
+* HIV Testing History (HIVTesting):
+  - Beta Coefficient (B) = 0.5521 | p-value = 2.7768e-22 (***)
+  - Decision: Reject H0. While controlling for other variables, having been tested for HIV is significantly associated with more sex partners (reflecting risk-driven testing).
+
+* Condom Use Behavior (CondomUse):
+  - Beta Coefficient (B) = -0.2661 | p-value = 5.4162e-07 (***)
+  - Decision: Reject H0. While controlling for other factors, using a condom during the last intercourse significantly predicts a lower total number of sex partners.
+
+Note: *** p < 0.001, ** p < 0.01, * p < 0.05
+==============================================================================
+End of Report.
