@@ -4,7 +4,7 @@
 
 **Source:** Youth Risk Behavior Survey (YRBS 2007)
 
-**Population:** Sexually active American adolescents.
+**Population:** American adolescents.
 
 ---
 
@@ -12,58 +12,99 @@
 
 ## MultipleSexPartners
 
-**Definition**
+### Original Question
 
-The reported number of sexual partners among sexually active adolescents.
+During your life, with how many people have you had sexual intercourse?
 
-**Variable Type**
+### Original Responses
 
-Quantitative variable.
+| Code | Response |
+|------|----------|
+| A (1) | Never had sexual intercourse |
+| B (2) | 1 person |
+| C (3) | 2 people |
+| D (4) | 3 people |
+| E (5) | 4 people |
+| F (6) | 5 people |
+| G (7) | 6 or more people |
 
-**Role**
+### Recoding
 
-Dependent (response) variable.
+- Never had sexual intercourse → Missing
+- 1 person → Missing
+- 2 or more people → Numerical scale
+
+### Role
+
+Response (dependent) variable.
 
 ---
 
 # Predictor Variables
 
-## HIV Education
+## TaughtAboutHIV
 
-**Definition**
+### Original Question
 
-Whether the participant received school-based HIV education.
+Have you ever been taught about AIDS or HIV infection in school?
 
-**Coding**
+### Original Responses
 
-- 0 = No
-- 1 = Yes
+| Code | Response |
+|------|----------|
+| A (1) | Yes |
+| B (2) | No |
+| C (3) | Not sure |
 
----
+### Recoding
 
-## HIV Testing
-
-**Definition**
-
-Whether the participant has ever been tested for HIV.
-
-**Coding**
-
-- 0 = No
-- 1 = Yes
+- Yes = 1
+- No = 0
+- Not sure = Missing
 
 ---
 
-## Condom Use
+## HIVTesting
 
-**Definition**
+### Original Question
 
-Whether the participant used a condom during sexual intercourse.
+Have you ever been tested for HIV, the virus that causes AIDS?
 
-**Coding**
+### Original Responses
 
-- 0 = No
-- 1 = Yes
+| Code | Response |
+|------|----------|
+| A (1) | Yes |
+| B (2) | No |
+| C (3) | Not sure |
+
+### Recoding
+
+- Yes = 1
+- No = 0
+- Not sure = Missing
+
+---
+
+## CondomUse
+
+### Original Question
+
+The last time you had sexual intercourse, did you or your partner use a condom?
+
+### Original Responses
+
+| Code | Response |
+|------|----------|
+| A (1) | Never had sexual intercourse |
+| B (2) | Yes |
+| C (3) | No |
+
+### Recoding
+
+- Yes = 1
+- No = 0
+- Never had sexual intercourse = Missing
 
 ---
 
@@ -75,6 +116,6 @@ Response variable:
 
 Predictor variables:
 
-- HIV Education
-- HIV Testing
-- Condom Use
+- TaughtAboutHIV
+- HIVTesting
+- CondomUse
