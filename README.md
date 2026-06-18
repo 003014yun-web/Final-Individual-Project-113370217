@@ -19,7 +19,7 @@ Do HIV education, condom use, and HIV testing predict the number of sexual partn
 **MultipleSexPartners**
 
 - Number of sexual partners among sexually active adolescents.
-- Recoded into a numerical scale from 1 to 6.
+- Recoded into a numerical scale from 1 to 5.
 
 ### Predictor Variables
 
